@@ -1032,17 +1032,17 @@ class _ViolinPlotter(_CategoricalPlotter):
 
     def draw_quartiles(self, ax, data, support, density, center, split=False):
         """Draw the quartiles as lines at width of density."""
-        q25, q50, q75 = np.percentile(data, [25, 50, 75])
+        q25, q50, q75 = np.percentile(data, [15.9, 50, 84.1])
 
         self.draw_to_density(ax, center, q25, support, density, split,
-                             linewidth=self.linewidth,
-                             dashes=[self.linewidth * 1.5] * 2)
+                             linewidth=self.linewidth)#,
+                             # dashes=[self.linewidth * 1.5] * 2)
         self.draw_to_density(ax, center, q50, support, density, split,
                              linewidth=self.linewidth,
                              dashes=[self.linewidth * 3] * 2)
         self.draw_to_density(ax, center, q75, support, density, split,
-                             linewidth=self.linewidth,
-                             dashes=[self.linewidth * 1.5] * 2)
+                             linewidth=self.linewidth)#,
+                             # dashes=[self.linewidth * 1.5] * 2)
 
     def draw_points(self, ax, data, center):
         """Draw individual observations as points at middle of the violin."""
